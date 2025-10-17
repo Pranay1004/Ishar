@@ -1,27 +1,30 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, JetBrains_Mono } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
-  title: "Ishar Singh Saini | Aerospace Engineer (Hypersonics, CFD, Aircraft Design)",
+  title: "Ishar Singh Saini | Aerospace Engineer - Hypersonics, CFD, UAV Systems",
   description:
-    "Premium, glass-designed resume site for Ishar Singh Saini — Aerospace Engineer specializing in Hypersonics, Aircraft Design, and CFD.",
+    "Aerospace engineer specializing in high-speed aerodynamics, CFD simulation, propulsion systems, and UAV prototyping. TBCC propulsion research, hypersonic flow analysis, precision landing systems.",
   keywords: [
-    "Aerospace Engineering",
-    "Hypersonics",
-    "CFD",
-    "Aircraft Design",
-    "Portfolio",
-    "Resume",
+    "aerospace engineer",
+    "CFD specialist",
+    "hypersonics",
+    "TBCC propulsion",
+    "UAV systems",
+    "OpenFOAM",
+    "HiFUN",
+    "turbine-based combined cycle",
+    "computational fluid dynamics",
+    "aircraft design",
+    "TATA Advanced Systems",
+    "IIT Bombay",
+    "FOSSEE",
   ],
   authors: [{ name: "Ishar Singh Saini" }],
   openGraph: {
     title: "Ishar Singh Saini | Aerospace Engineer",
     description:
-      "Hypersonics • CFD • Aircraft Design — Apple/Pixar-inspired, premium glass UI.",
+      "Hypersonics • CFD • Propulsion Systems • UAV Design — Aerospace engineer bridging simulation fidelity with flight-ready performance.",
     type: "website",
   },
 };
@@ -32,28 +35,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
-      <head />
-      <body className="antialiased bg-app text-app-foreground">
-        <nav className="sticky top-0 z-50 backdrop-blur-xl bg-[rgba(255,255,255,0.85)] border-b border-app shadow-sm">
-          <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-            <a href="#top" className="font-semibold tracking-tight text-app-foreground">
-              Ishar Singh Saini
-            </a>
-            <div className="hidden sm:flex items-center gap-4 text-sm text-muted">
-              <a href="#experience" className="hover:text-app-foreground">Experience</a>
-              <a href="#projects" className="hover:text-app-foreground">Projects</a>
-              <a href="#publications" className="hover:text-app-foreground">Publications</a>
-              <a href="#skills" className="hover:text-app-foreground">Skills</a>
-              <a href="#awards" className="hover:text-app-foreground">Awards</a>
-              <a href="#contact" className="rounded-md px-3 py-1.5 bg-app-foreground text-white hover:bg-[rgba(var(--accent),1)] transition">Contact</a>
-            </div>
-          </div>
-        </nav>
-
-        <main id="top" className="min-h-dvh w-full overflow-x-hidden">
-          {children}
-        </main>
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Ishar Singh Saini",
+              jobTitle: "Aerospace Engineer",
+              description:
+                "Aerospace engineer specializing in hypersonics, CFD, and propulsion systems",
+              url: "https://linkedin.com/in/ishar-singh-saini",
+              sameAs: ["https://linkedin.com/in/ishar-singh-saini"],
+            }),
+          }}
+        />
+      </head>
+      <body className="antialiased font-body">
+        <div className="blueprint-grid fixed inset-0 z-0 pointer-events-none opacity-30" />
+        {children}
       </body>
     </html>
   );

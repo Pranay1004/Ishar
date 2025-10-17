@@ -1,370 +1,279 @@
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+'use client';
 
-const experiences = [
-  {
-    role: "Concept Design Intern",
-    company: "TATA Advanced Systems Limited",
-    location: "Bengaluru, India",
-    period: "Jun 2024 – Aug 2024",
-    bullets: [
-      "Simulated hybrid UAV performance on TASL's HPC, tuning RPM distribution to balance thrust in crosswind hover scenarios.",
-      "Delivered 7% drag reduction for radome redesign and established mesh workflows for complex NMG geometries.",
-      "Investigated Pitot tube errors from fuselage interference, identifying stagnation issues up to 2% at high dynamic pressure.",
-    ],
-  },
-  {
-    role: "Semester Long Intern",
-    company: "FOSSEE, IIT Bombay",
-    location: "Remote / Mumbai, India",
-    period: "Mar 2024 – Jun 2024",
-    bullets: [
-      "Ranked 1st nationally, leading OpenFOAM simulations on high-speed compressible flow over blunt re-entry bodies.",
-      "Validated sonicFoam solver in hypersonic regimes with 13% error bounds and executed mesh-independence studies.",
-      "Presented hypersonic CFD analysis at SAROD 2024, distilling shock structure trends for re-entry vehicle design.",
-    ],
-  },
-  {
-    role: "Project & Research Intern",
-    company: "IIT Bombay — Precision Landing Drone Lab",
-    location: "Mumbai, India",
-    period: "Jun 2023 – Aug 2023",
-    bullets: [
-      "Modelled carbon-fiber airframe in Ansys achieving ~50% mass reduction vs aluminum by validating stress envelopes.",
-      "Led composite manufacturing and PLA component design, integrating sensors with RTK + ArUco landing stack.",
-      "Reached autonomous landings with ≤2 cm accuracy using dual-phase guidance and custom calibration scripts.",
-    ],
-  },
-];
-
-const projects = [
-  {
-    title: "TBCC Mode Transition Study",
-    context: "Final Year Dissertation · Amity University Mumbai",
-    summary:
-      "Mapped mode transition of a GE F404-IN20 powered TBCC across Mach 0.8–4.0, using GasTurb + MATLAB coupling to optimise air-splitting and thrust sharing.",
-    highlights: ["Identified critical Mach 2.8–3.2 transition window", "Boosted specific thrust & TSFC near Mach 2.75"],
-  },
-  {
-    title: "Supersonic UCAV Concept",
-    context: "NACDeC-VIII · Aeronautical Society of India",
-    summary:
-      "Directed concept design for a 18,800 kg UCAV achieving 5,000 kg payload delivery within a 1,000 km combat radius and <2,000 m runway requirement.",
-    highlights: ["Delta wing + afterburning turbofan for Mach 2 cruise", "Mission fuel fraction optimised to 0.346"],
-  },
-  {
-    title: "Autonomous Navigation Aerial Vehicle",
-    context: "ISRO Robotics Challenge – URSC",
-    summary:
-      "Engineered LiDAR-driven SLAM and precision-landing logic for GPS-denied environments with modular emergency recovery systems.",
-    highlights: ["≤50 cm landing radius with real-time telemetry", "Dual-mode manual/autonomous architecture"],
-  },
-  {
-    title: "Minimum Length Rocket Nozzle",
-    context: "FOSSEE Scilab Case Study Hackathon",
-    summary:
-      "Implemented Method of Characteristics solver in Scilab for supersonic nozzle design, applying surrogate optimisation to streamline divergent contouring.",
-    highlights: ["Optimised nozzle for uniform exit Mach", "Reduced compute cost via surrogate refinement"],
-  },
-];
-
-const publications = [
-  {
-    title:
-      "Assessment of Existing OpenFOAM Solvers for Incompressible Flow Over a 2D Prism",
-    meta: "CFD Letters 17(10):184-197, 2025",
-    link: "https://doi.org/10.37934/cfdl.17.10.184197",
-  },
-  {
-    title:
-      "Numerical Simulation of High-Speed Compressible Flow over Re-entry Vehicles using OpenFOAM",
-    meta: "SAROD 2024 — Paper ID 57",
-  },
-];
-
-const certifications = [
-  { title: "Aircraft Design", issuer: "NPTEL", year: "2025" },
-  {
-    title: "Supersonic & Hypersonic Flows (Elite + Silver)",
-    issuer: "NPTEL",
-    year: "2024",
-  },
-  { title: "FreeFlyer Level 1", issuer: "a.i. solutions", year: "2023" },
-];
-
-const awards = [
-  { title: "Emerging Talent in Open Source", org: "FOSSEE, IIT Bombay", year: "2025" },
-  { title: "1st Consolation Prize · Scilab Case Study", org: "FOSSEE, IIT Bombay", year: "2025" },
-  { title: "1st Place · Innovation Day Project Presentation", org: "Amity University Mumbai", year: "2024" },
-  { title: "3rd Place · Innovation Day Poster", org: "Amity University Mumbai", year: "2023" },
-];
-
-const skills = {
-  "CFD & Analysis": [
-    "OpenFOAM",
-    "HiFUN",
-    "Ansys Fluent",
-    "SimScale",
-    "Mesh Generation",
-    "Turbulence Modelling",
-  ],
-  "Design & Prototyping": [
-    "SolidWorks",
-    "CATIA",
-    "OpenVSP",
-    "CAD / FEM",
-    "Wind Tunnel Testing",
-    "UAV Prototyping",
-  ],
-  "Programming & Tools": [
-    "Python",
-    "MATLAB/Scilab",
-    "C/C++",
-    "Linux",
-    "GitHub",
-    "LaTeX",
-  ],
-  Languages: ["English", "German (A2)", "Hindi", "Punjabi", "Marathi"],
-};
+import { useEffect, useRef } from 'react';
+import { Rocket, Zap, Wind, Gauge, Mail, Linkedin, Phone, ChevronDown } from 'lucide-react';
 
 export default function Home() {
+  const rocketRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!rocketRef.current) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      rocketRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) rotateX(${-y}deg) rotateY(${x}deg)`;
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
-    <div className="relative">
-      <section className="mx-auto max-w-6xl px-4 py-20 md:py-28">
-        <div className="card p-8 md:p-12">
-          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-xl space-y-4">
-              <span className="badge">Aerospace Engineer · Hypersonics · CFD</span>
-              <h1 className="text-4xl md:text-5xl font-semibold leading-tight heading-gradient">
-                Ishar Singh Saini
-              </h1>
-              <p className="text-muted text-lg">
-                Bridging high-speed aerodynamics, propulsion, and hands-on prototyping. From TBCC propulsion analysis to
-                hypersonic CFD validation and precision UAV landings, I translate complex flow physics into flight-ready
-                performance.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a href="#experience" className="inline-flex items-center gap-2 rounded-full bg-app-foreground text-white px-5 py-2 text-sm font-medium shadow-md">
-                  View Experience
-                  <ArrowRight size={16} />
-                </a>
-                <a href="mailto:peisharsaini@yahoo.com" className="inline-flex items-center gap-2 rounded-full border border-app px-5 py-2 text-sm font-medium text-app-foreground hover:bg-white">
-                  Email
-                  <Mail size={16} />
-                </a>
-              </div>
-            </div>
-            <div className="card-subtle w-full md:max-w-xs p-6 space-y-4 text-sm">
-              <div className="flex items-start gap-3">
-                <MapPin size={16} className="text-muted mt-0.5" />
-                <div>
-                  <div className="font-medium">Mumbai, Maharashtra, India</div>
-                  <div className="text-muted">Open to relocation</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Phone size={16} className="text-muted mt-0.5" />
-                <div>
-                  <div className="font-medium">+91 8104156108</div>
-                  <div className="text-muted">WhatsApp / Call</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Mail size={16} className="text-muted mt-0.5" />
-                <div>
-                  <div className="font-medium">peisharsaini@yahoo.com</div>
-                  <div className="text-muted">Primary contact</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <ArrowRight size={16} className="text-muted rotate-[-45deg] mt-0.5" />
-                <div>
-                  <a href="https://linkedin.com/in/ishar-singh-saini" target="_blank" rel="noreferrer" className="font-medium text-app-foreground hover:underline">
-                    linkedin.com/in/ishar-singh-saini
-                  </a>
-                  <div className="text-muted">Professional network</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 grid grid-cols-2 gap-4 text-sm text-muted md:grid-cols-4">
-            <div>
-              <div className="text-app-foreground text-xl font-semibold">SAROD 2024</div>
-              <div>Hypersonic CFD presentation</div>
-            </div>
-            <div>
-              <div className="text-app-foreground text-xl font-semibold">TBCC Focus</div>
-              <div>Mach 0.8–4 propulsion research</div>
-            </div>
-            <div>
-              <div className="text-app-foreground text-xl font-semibold">GATE AE 2025</div>
-              <div>Score: 21.0 / 100</div>
-            </div>
-            <div>
-              <div className="text-app-foreground text-xl font-semibold">CGPA 8.33</div>
-              <div>Amity University Mumbai</div>
+    <div className="relative min-h-screen">
+      {/* Particle Field Background */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        {Array.from({ length: 120 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-0.5 h-0.5 bg-white rounded-full animate-shimmer"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              opacity: Math.random() * 0.7 + 0.3,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-accent-cyan/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <a href="#hero" className="font-display text-xl font-bold gradient-text tracking-wider">
+              ISHAR SAINI
+            </a>
+            <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+              <a href="#about" className="text-white/70 hover:text-accent-cyan transition-colors">
+                ABOUT
+              </a>
+              <a href="#projects" className="text-white/70 hover:text-accent-cyan transition-colors">
+                PROJECTS
+              </a>
+              <a href="#experience" className="text-white/70 hover:text-accent-cyan transition-colors">
+                EXPERIENCE
+              </a>
+              <a
+                href="#contact"
+                className="px-5 py-2 bg-gradient-accent text-white rounded-md hover:shadow-lg hover:scale-105 transition-all"
+              >
+                CONTACT
+              </a>
             </div>
           </div>
         </div>
-      </section>
+      </nav>
 
-      <section id="experience" className="mx-auto max-w-6xl px-4 py-16">
-        <header className="mb-10">
-          <span className="badge">Experience</span>
-          <h2 className="mt-3 text-3xl font-semibold text-app-foreground">Hands-on aerospace problem solving</h2>
-          <p className="mt-2 text-muted max-w-2xl">
-            Concept design, hypersonic CFD, UAV prototyping, and HPC-based solver deployment across industry and leading
-            research labs.
+      {/* Hero Section */}
+      <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 pt-20">
+        <div className="max-w-6xl mx-auto text-center space-y-8 reveal">
+          <div className="space-y-4">
+            <h1 className="font-display text-6xl md:text-8xl font-bold gradient-text tracking-tight leading-tight">
+              ISHAR SINGH SAINI
+            </h1>
+            <p className="text-xl md:text-2xl text-accent-cyan font-medium tracking-widest">
+              AEROSPACE ENGINEER · HYPERSONICS · CFD · PROPULSION
+            </p>
+          </div>
+
+          <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+            Bridging high-speed aerodynamics, turbine-based combined cycle propulsion, and precision UAV systems.
+            From TBCC mode transition analysis to hypersonic CFD validation—translating complex flow physics into
+            flight-ready performance.
           </p>
-        </header>
-        <div className="space-y-6">
-          {experiences.map((item) => (
-            <article key={item.role} className="card-subtle p-6 md:p-8">
-              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold text-app-foreground">{item.role}</h3>
-                  <p className="text-muted">{item.company}</p>
-                </div>
-                <div className="text-sm text-muted md:text-right">
-                  <div>{item.location}</div>
-                  <div>{item.period}</div>
-                </div>
-              </div>
-              <ul className="mt-4 space-y-2 text-sm text-muted leading-relaxed">
-                {item.bullets.map((line) => (
-                  <li key={line} className="flex gap-2">
-                    <span className="text-app-foreground mt-1">•</span>
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
 
-      <section id="projects" className="mx-auto max-w-6xl px-4 py-16">
-        <header className="mb-10">
-          <span className="badge">Projects & Research</span>
-          <h2 className="mt-3 text-3xl font-semibold text-app-foreground">Selected work across propulsion, CFD, and design</h2>
-          <p className="mt-2 text-muted max-w-2xl">
-            From TBCC mode transition mapping to supersonic combat concepts and autonomous navigation systems, each
-            project connects simulation fidelity with practical mission outcomes.
-          </p>
-        </header>
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
-            <article key={project.title} className="card-subtle h-full p-6">
-              <h3 className="text-lg font-semibold text-app-foreground">{project.title}</h3>
-              <p className="text-xs uppercase tracking-wide text-muted mt-1">{project.context}</p>
-              <p className="text-muted text-sm leading-relaxed mt-4">{project.summary}</p>
-              <ul className="mt-4 space-y-1 text-sm text-muted">
-                {project.highlights.map((point) => (
-                  <li key={point} className="flex gap-2">
-                    <span className="text-app-foreground mt-1">–</span>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="publications" className="mx-auto max-w-6xl px-4 py-16">
-        <div className="grid gap-10 md:grid-cols-2">
-          <div>
-            <span className="badge">Publications</span>
-            <h2 className="mt-3 text-3xl font-semibold text-app-foreground">Peer-reviewed contributions</h2>
-            <ul className="mt-6 space-y-4">
-              {publications.map((pub) => (
-                <li key={pub.title} className="card-subtle p-5">
-                  <p className="text-sm font-medium text-app-foreground">{pub.title}</p>
-                  <p className="text-xs uppercase tracking-wide text-muted mt-2">{pub.meta}</p>
-                  {pub.link ? (
-                    <a href={pub.link} target="_blank" rel="noreferrer" className="text-sm text-app-foreground hover:underline mt-2 inline-block">
-                      View publication
-                    </a>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
+          {/* 3D Floating Rocket */}
+          <div ref={rocketRef} className="relative mx-auto w-32 h-32 my-12 animate-float" style={{ perspective: '1200px' }}>
+            <Rocket className="w-full h-full text-accent-cyan glow-cyan" />
           </div>
-          <div id="awards">
-            <span className="badge">Awards & Certifications</span>
-            <div className="mt-6 grid gap-4">
-              <div className="card-subtle p-5">
-                <h3 className="text-sm font-semibold text-app-foreground uppercase tracking-wide">Awards</h3>
-                <ul className="mt-3 space-y-2 text-sm text-muted">
-                  {awards.map((award) => (
-                    <li key={award.title} className="flex justify-between gap-4">
-                      <span>{award.title}</span>
-                      <span className="text-xs text-muted">{award.org} · {award.year}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="card-subtle p-5">
-                <h3 className="text-sm font-semibold text-app-foreground uppercase tracking-wide">Certifications</h3>
-                <ul className="mt-3 space-y-2 text-sm text-muted">
-                  {certifications.map((cert) => (
-                    <li key={cert.title} className="flex justify-between gap-4">
-                      <span>{cert.title}</span>
-                      <span className="text-xs text-muted">{cert.issuer} · {cert.year}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="#projects"
+              className="px-8 py-3 bg-gradient-accent text-white rounded-md font-medium hover:scale-105 transition-transform shadow-lg hover:glow-cyan"
+            >
+              VIEW PROJECTS
+            </a>
+            <a
+              href="#contact"
+              className="px-8 py-3 glass-panel text-white rounded-md font-medium hover:scale-105 transition-transform"
+            >
+              GET IN TOUCH
+            </a>
+          </div>
+
+          <div className="pt-12 animate-bounce">
+            <ChevronDown className="w-8 h-8 text-accent-cyan/50 mx-auto" />
           </div>
         </div>
       </section>
 
-      <section id="skills" className="mx-auto max-w-6xl px-4 py-16">
-        <header className="mb-8">
-          <span className="badge">Skills Portfolio</span>
-          <h2 className="mt-3 text-3xl font-semibold text-app-foreground">Toolchain across simulation, design, and delivery</h2>
-        </header>
-        <div className="grid gap-6 md:grid-cols-2">
-          {Object.entries(skills).map(([category, items]) => (
-            <div key={category} className="card-subtle p-6">
-              <h3 className="text-lg font-semibold text-app-foreground">{category}</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {items.map((skill) => (
-                  <span key={skill} className="badge bg-transparent text-sm">
-                    {skill}
-                  </span>
-                ))}
+      {/* About Section */}
+      <section id="about" className="relative py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Visual - Skills Circle */}
+            <div className="relative reveal">
+              <div className="relative w-72 h-72 mx-auto">
+                <div className="absolute inset-0 rounded-full bg-gradient-accent opacity-20 animate-pulse-glow" />
+                <div className="absolute inset-4 glass-panel rounded-full flex items-center justify-center">
+                  <div className="text-center">
+                    <Gauge className="w-16 h-16 text-accent-cyan mx-auto mb-3" />
+                    <div className="font-display text-3xl gradient-text font-bold">SKILLS</div>
+                    <div className="text-xs text-white/50 mt-2">4 Years Experience</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Skill Badges - All Skills from Resume */}
+              <div className="absolute top-0 right-0 glass-panel px-3 py-1.5 rounded-full animate-float text-xs" style={{ animationDelay: '0s' }}>
+                <Wind className="w-4 h-4 text-accent-cyan inline mr-1" />
+                <span className="font-medium">CFD Specialist</span>
+              </div>
+              <div className="absolute top-12 right-8 glass-panel px-3 py-1.5 rounded-full animate-float text-xs" style={{ animationDelay: '0.3s' }}>
+                <Zap className="w-4 h-4 text-accent-orange inline mr-1" />
+                <span className="font-medium">Hypersonics</span>
+              </div>
+              <div className="absolute bottom-0 left-0 glass-panel px-3 py-1.5 rounded-full animate-float text-xs" style={{ animationDelay: '0.6s' }}>
+                <Rocket className="w-4 h-4 text-accent-purple inline mr-1" />
+                <span className="font-medium">Propulsion</span>
+              </div>
+              <div className="absolute bottom-12 left-8 glass-panel px-3 py-1.5 rounded-full animate-float text-xs" style={{ animationDelay: '0.9s' }}>
+                <span className="font-medium">OpenFOAM</span>
+              </div>
+              <div className="absolute top-1/3 -left-4 glass-panel px-3 py-1.5 rounded-full animate-float text-xs" style={{ animationDelay: '1.2s' }}>
+                <span className="font-medium">Ansys</span>
+              </div>
+              <div className="absolute top-1/3 -right-4 glass-panel px-3 py-1.5 rounded-full animate-float text-xs" style={{ animationDelay: '1.5s' }}>
+                <span className="font-medium">HiFUN</span>
+              </div>
+              <div className="absolute bottom-1/3 -left-6 glass-panel px-3 py-1.5 rounded-full animate-float text-xs" style={{ animationDelay: '1.8s' }}>
+                <span className="font-medium">SolidWorks</span>
+              </div>
+              <div className="absolute bottom-1/3 -right-6 glass-panel px-3 py-1.5 rounded-full animate-float text-xs" style={{ animationDelay: '2.1s' }}>
+                <span className="font-medium">MATLAB</span>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
 
-      <section id="contact" className="mx-auto max-w-6xl px-4 pb-24">
-        <div className="card p-8 md:p-10">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <span className="badge">Let’s collaborate</span>
-              <h2 className="mt-3 text-3xl font-semibold text-app-foreground">Ready for hypersonic, CFD, and concept design challenges.</h2>
-              <p className="mt-2 text-muted max-w-xl">
-                Available for aerospace R&D roles, simulation-heavy engagements, and multidisciplinary teams needing rapid
-                experimentation and validation.
+            {/* Right: Content */}
+            <div className="space-y-6 reveal">
+              <h2 className="font-display text-4xl md:text-5xl font-bold gradient-text">
+                AEROSPACE ENGINEER
+              </h2>
+              <p className="text-lg text-white/80 leading-relaxed">
+                <span className="text-accent-orange font-semibold">4 years of hands-on experience</span> in aerospace engineering,
+                from concept design to hypersonic validation. Presented CFD analysis at <span className="text-accent-cyan font-semibold">SAROD 2024</span>,
+                validated TBCC propulsion across Mach 0.8–4.0, and achieved ≤2 cm UAV landing precision.
               </p>
+              <p className="text-lg text-white/80 leading-relaxed">
+                Specialized in high-speed aerodynamics, CFD simulation, and propulsion systems. Worked at{' '}
+                <span className="text-accent-purple font-semibold">TATA Advanced Systems</span> on hybrid UAV analysis,{' '}
+                <span className="text-accent-cyan font-semibold">IIT Bombay</span> on precision landing systems, and{' '}
+                <span className="text-accent-purple font-semibold">FOSSEE</span> on hypersonic OpenFOAM research (1st Rank nationally).
+              </p>
+
+              {/* Skill Categories Grid - No Percentages */}
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                <div className="glass-panel p-4 rounded-lg reveal" style={{ animationDelay: '0.1s' }}>
+                  <div className="text-sm text-accent-cyan font-semibold mb-2">CFD & Analysis</div>
+                  <div className="text-xs text-white/70 space-y-1">
+                    <div>OpenFOAM, HiFUN, Ansys Fluent</div>
+                    <div>Mesh Generation, Turbulence</div>
+                  </div>
+                </div>
+                <div className="glass-panel p-4 rounded-lg reveal" style={{ animationDelay: '0.2s' }}>
+                  <div className="text-sm text-accent-purple font-semibold mb-2">Design & CAD</div>
+                  <div className="text-xs text-white/70 space-y-1">
+                    <div>SolidWorks, CATIA, OpenVSP</div>
+                    <div>UAV Prototyping, FEM</div>
+                  </div>
+                </div>
+                <div className="glass-panel p-4 rounded-lg reveal" style={{ animationDelay: '0.3s' }}>
+                  <div className="text-sm text-accent-orange font-semibold mb-2">Programming</div>
+                  <div className="text-xs text-white/70 space-y-1">
+                    <div>Python, MATLAB, C/C++</div>
+                    <div>Linux, GitHub, LaTeX</div>
+                  </div>
+                </div>
+                <div className="glass-panel p-4 rounded-lg reveal" style={{ animationDelay: '0.4s' }}>
+                  <div className="text-sm text-accent-cyan font-semibold mb-2">Specialization</div>
+                  <div className="text-xs text-white/70 space-y-1">
+                    <div>Hypersonics, TBCC</div>
+                    <div>Wind Tunnel Testing</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col gap-3 text-sm">
-              <a href="mailto:peisharsaini@yahoo.com" className="inline-flex items-center gap-2 rounded-full bg-app-foreground text-white px-5 py-2 font-medium shadow-md">
-                Email Ishar
-                <Mail size={16} />
-              </a>
-              <a href="tel:+918104156108" className="inline-flex items-center gap-2 rounded-full border border-app px-5 py-2 font-medium text-app-foreground hover:bg-white">
-                Call or WhatsApp
-                <Phone size={16} />
-              </a>
-              <a href="https://linkedin.com/in/ishar-singh-saini" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-app px-5 py-2 font-medium text-app-foreground hover:bg-white">
-                LinkedIn Profile
-                <ArrowRight size={16} />
-              </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Stats Banner */}
+      <section className="relative py-16 px-4 bg-gradient-accent/10">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { value: '4 Years', label: 'Aerospace Experience' },
+            { value: 'SAROD 2024', label: 'Hypersonic CFD Presentation' },
+            { value: 'Mach 0.8–4', label: 'TBCC Research Range' },
+            { value: '1st Rank', label: 'FOSSEE National Screening' },
+          ].map((stat, i) => (
+            <div key={i} className="glass-panel p-6 rounded-lg reveal" style={{ animationDelay: `${i * 0.15}s` }}>
+              <div className="font-display text-2xl md:text-3xl gradient-text font-bold">{stat.value}</div>
+              <div className="text-sm text-white/70 mt-2">{stat.label}</div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="relative py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="font-display text-4xl md:text-5xl font-bold gradient-text reveal">
+            LET'S COLLABORATE
+          </h2>
+          <p className="text-lg text-white/80 reveal">
+            Ready for hypersonic, CFD, and concept design challenges. Available for aerospace R&D roles and
+            simulation-heavy engagements.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+            <a
+              href="mailto:peisharsaini@yahoo.com"
+              className="flex items-center gap-3 px-6 py-3 bg-gradient-accent text-white rounded-md font-medium hover:scale-105 transition-transform shadow-lg"
+            >
+              <Mail className="w-5 h-5" />
+              EMAIL ISHAR
+            </a>
+            <a
+              href="https://linkedin.com/in/ishar-singh-saini"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 px-6 py-3 glass-panel text-white rounded-md font-medium hover:scale-105 transition-transform"
+            >
+              <Linkedin className="w-5 h-5" />
+              LINKEDIN
+            </a>
+            <a
+              href="tel:+918104156108"
+              className="flex items-center gap-3 px-6 py-3 glass-panel text-white rounded-md font-medium hover:scale-105 transition-transform"
+            >
+              <Phone className="w-5 h-5" />
+              CALL / WHATSAPP
+            </a>
+          </div>
+
+          <div className="pt-12 text-sm text-white/50">
+            <p>© 2025 Ishar Singh Saini · Aerospace Engineer · Hypersonics · CFD · Propulsion Systems</p>
           </div>
         </div>
       </section>

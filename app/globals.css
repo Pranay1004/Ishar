@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* System/next/font will handle fonts; keep minimal web-safe fallback */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+/* Deep Space Aerospace Theme Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
 
 /* Global Styles */
 * {
@@ -12,41 +13,254 @@
   box-sizing: border-box;
 }
 
-:root{
-  --background: 245 248 255; /* page backdrop */
-  --surface: 255 255 255;     /* cards */
-  --surface-muted: 244 245 252;
-  --foreground: 16 24 40;    /* text */
-  --foreground-soft: 71 85 105;
-  --accent: 76 126 243;      /* royal blue */
-  --accent-soft: 130 170 255;
-  --accent-secondary: 157 111 239; /* lavender */
-  --border: 221 229 255;
-  --shadow: 15 23 42;
+:root {
+  --space: #0a0e27;
+  --accent-cyan: #00f0ff;
+  --accent-purple: #a855f7;
+  --accent-orange: #ff6b35;
+  --glass: rgba(13, 18, 45, 0.72);
 }
 
-html { background-color: rgb(var(--background)); scroll-behavior: smooth; }
+html {
+  background-color: var(--space);
+  scroll-behavior: smooth;
+}
+
 body {
-  background: radial-gradient(circle at top left, rgba(var(--accent-soft),0.15), transparent 45%),
-              radial-gradient(circle at top right, rgba(var(--accent-secondary),0.18), transparent 45%),
-              linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,248,255,1));
-  color: rgb(var(--foreground));
+  background: radial-gradient(circle at 20% 20%, rgba(0, 240, 255, 0.08), transparent 45%),
+              radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.08), transparent 40%),
+              var(--space);
+  color: #ffffff;
   position: relative;
   overscroll-behavior: none;
+  font-family: 'Space Grotesk', sans-serif;
+  cursor: auto; /* Keep default cursor visible */
 }
 
-/* Custom Scrollbar - Minimal */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
-::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-track {
+  background: var(--space);
+}
 
-::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.35); border-radius: 9999px; }
+::-webkit-scrollbar-thumb {
+  background: var(--accent-cyan);
+  border-radius: 0;
+}
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9D00FF;
+  background: var(--accent-purple);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(0, 240, 255, 0.3);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: rgba(0, 240, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Utility Layers */
+@layer utilities {
+  /* Glass Morphism Panels */
+  .glass-panel {
+    background: var(--glass);
+    border: 1px solid rgba(0, 240, 255, 0.12);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 20px 45px rgba(4, 11, 36, 0.45);
+  }
+
+  .glass-strong {
+    background: rgba(13, 18, 45, 0.85);
+    border: 1px solid rgba(0, 240, 255, 0.18);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-purple));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .gradient-text-warm {
+    background: linear-gradient(120deg, var(--accent-orange), var(--accent-purple));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Gradient Backgrounds */
+  .bg-gradient-accent {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  }
+
+  .bg-gradient-warm {
+    background: linear-gradient(135deg, var(--accent-orange), #ff8a5b);
+  }
+
+  /* Neon Glow Effects */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4),
+                0 0 40px rgba(0, 240, 255, 0.2);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4),
+                0 0 40px rgba(168, 85, 247, 0.2);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4),
+                0 0 40px rgba(255, 107, 53, 0.2);
+  }
+
+  /* Reveal Animations */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Blueprint Grid Overlay */
+  .blueprint-grid {
+    background-image: 
+      linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 140px 140px;
+    pointer-events: none;
+  }
+
+  /* Custom Cursor Elements */
+  .custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.3s ease;
+  }
+
+  .cursor-trail {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-purple);
+    pointer-events: none;
+    z-index: 9998;
+    mix-blend-mode: screen;
+    transition: transform 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cursor-ring {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--accent-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9997;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Hide cursor on mobile */
+  @media (max-width: 768px) {
+    .custom-cursor,
+    .cursor-trail,
+    .cursor-ring {
+      display: none;
+    }
+  }
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4),
+                0 0 40px rgba(0, 240, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.6),
+                0 0 60px rgba(0, 240, 255, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Brutalist Utility Classes */
