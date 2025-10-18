@@ -140,7 +140,7 @@ export default function Home() {
                 {/* Revolving Skills - Like Breaking News */}
                 <div className="absolute inset-0">
                   <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve text-xs" style={{ animationDelay: '0s' }}>
+                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-1 text-xs">
                       <Wind className="w-4 h-4 text-accent-cyan inline mr-1" />
                       <span className="font-medium">CFD</span>
                     </div>
@@ -149,7 +149,7 @@ export default function Home() {
                 
                 <div className="absolute inset-0">
                   <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve text-xs" style={{ animationDelay: '2s' }}>
+                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-2 text-xs">
                       <Zap className="w-4 h-4 text-accent-orange inline mr-1" />
                       <span className="font-medium">Hypersonics</span>
                     </div>
@@ -158,7 +158,7 @@ export default function Home() {
 
                 <div className="absolute inset-0">
                   <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve text-xs" style={{ animationDelay: '4s' }}>
+                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-3 text-xs">
                       <Rocket className="w-4 h-4 text-accent-purple inline mr-1" />
                       <span className="font-medium">Propulsion</span>
                     </div>
@@ -167,7 +167,7 @@ export default function Home() {
 
                 <div className="absolute inset-0">
                   <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve text-xs" style={{ animationDelay: '6s' }}>
+                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-4 text-xs">
                       <span className="font-medium">OpenFOAM</span>
                     </div>
                   </div>
@@ -175,7 +175,7 @@ export default function Home() {
 
                 <div className="absolute inset-0">
                   <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve text-xs" style={{ animationDelay: '8s' }}>
+                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-5 text-xs">
                       <span className="font-medium">Ansys</span>
                     </div>
                   </div>
@@ -183,7 +183,7 @@ export default function Home() {
 
                 <div className="absolute inset-0">
                   <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve text-xs" style={{ animationDelay: '10s' }}>
+                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-6 text-xs">
                       <span className="font-medium">SolidWorks</span>
                     </div>
                   </div>
@@ -191,7 +191,7 @@ export default function Home() {
 
                 <div className="absolute inset-0">
                   <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve text-xs" style={{ animationDelay: '12s' }}>
+                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-7 text-xs">
                       <span className="font-medium">MATLAB</span>
                     </div>
                   </div>
@@ -199,7 +199,7 @@ export default function Home() {
 
                 <div className="absolute inset-0">
                   <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve text-xs" style={{ animationDelay: '14s' }}>
+                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-8 text-xs">
                       <span className="font-medium">Python</span>
                     </div>
                   </div>
