@@ -1,0 +1,150 @@
+Ishar Singh Saini
+Aerospace Engineer
+♂¶ap-¶arker-altMumbai, Maharashtra, India /envel⌢peisharsaini@yahoo.com ♂phone-alt+91 8104156108 /linkedin-inishar-singh-saini
+About Me
+Presented hypersonic CFD analysis at SAROD 2024 and validated TBCC propulsion performance using OEM data. I’m
+an Aerospace graduate specializing in high-speed aerodynamics, CFD, and propulsion systems. Known for rapid
+problem-solving and hands-on troubleshooting in high-pressure environments; applied across CFD simulations, CAD
+modelling, and UAV prototyping. My work bridges theory, simulation, and real-world application, and I’m now ready to
+solve cutting-edge challenges in next-gen propulsion and aerothermal systems.
+Experiences / Internships
+TATA Advanced Systems Limited
+Concept Design Intern
+Bengaluru, India
+June 2024 - Aug 2024
+◦ Worked in the Concept Design Department under Dr. A. K. Ghosh analyzing the conceptual designs capabilities with the
+help of CFD.
+◦ Simulated hybrid UAV performance under crosswind and hover conditions; observed that rear rotors produced up to 50%
+greater thrust and power due to equal RPM distribution. Analyzing crosswinds and test data conditions required iterative
+RPM input adjustments to balance mechanical power.
+◦ Operated TASL’s Linux-based High-Performance Computer (HPC) for computational solving using HiFUN and Python.
+◦ Investigated Pitot tube accuracy when in proximity to the fuselage, identifying stagnation-induced errors when static inlets
+are close to the fuselage up to 2%, with greater inaccuracies at high speeds conditions like headwinds or dives.
+◦ Conducted aerodynamic analysis of radome modules of aircraft. Results highlight that the new leeward-curved design led to
+7% drag reduction; suggested curvature if applied to the older yet more streamlined design could yield even lower drag.
+◦ Generated high-quality meshes and mesh-compatible geometries from complex NMGs (Numerical Master Geometries) of the
+UAVs and aircrafts, ensuring solver compatibility and convergence.
+Semester Long Intern
+FOSSEE, IIT Bombay
+(Remote) Mumbai, India
+March 2024 – June 2024
+◦ Conducted CFD simulations using OpenFOAM, an open-source CFD software for the research migration project titled,
+‘High-speed compressible flow over blunt and re-entry bodies ’ ./external-link-alt
+◦ Validated turbulent compressible flow behavior over blunt re-entry capsules against experimental data; identified limitations
+up to 13% discrepancy of the sonicFoam solver in hypersonic regimes.
+◦ Performed mesh independence studies to determine optimal grid structure, ensuring solver stability and convergence across
+Mach regimes.
+◦ Analyzed shock structure and aerodynamic effects as a function of Mach number, identifying key trends relevant to
+re-entry vehicle design.
+◦ Secured 1st Rank in the national screening for project selection.
+◦ This project was presented in SAROD 2024 symposium.
+Project & Research Intern
+IIT Bombay, Department of Aerospace Engineering
+Mumbai, India
+June 2023 – Aug 2023
+◦ Worked on a Precision Landing Drone project under Prof. Arnab Maity, in the Department of Aerospace Engineering,
+focusing on FEM simulations, structural integrity analysis of composite materials, assembly and testing.
+◦ Conducted detailed static and localized load analyses using Ansys, validating carbon fiber composite performance against
+aluminum through stress-strain and deformation comparisons resulting in almost 50% weight reduction of the drone.
+◦ Designed PLA components in SolidWorks; oversaw machining, assembly, and integration of electronics and sensor calibration.
+◦ Implemented a dual-phase precision landing system using RTK GPS and ArUco markers, achieving autonomous landings
+with up to 2 cm accuracy.
+Skills
+Technical Skills: Prototype Designing, Research and Analytical skills, Unmanned Aerial Systems Piloting (Fixed-Wing and
+Rotary-Wing), Wind Tunnel Testing
+Software Tools: Ansys, HiFUN, FreeFlyer, OpenFOAM, SimScale, OpenVSP, XFLR5, GasTurb, MatLab, Scilab, Visual Studio
+Code, CAD, SolidWorks, CATIA, GridPro, ICEM
+Programming Tools: C, C++, Python, Linux, GitHub, LaTex
+Interpersonal Skills: Leadership qualities, Innovation, Creativity, Strong verbal and written, Communication skills,
+Critical-Thinking, Problem-Solving, Teamwork
+Languages: English, German (A2), Hindi, Punjabi, Marathi
+Education
+Amity University Mumbai 2021 – 2025
+B.Tech in Aerospace Engineering
+◦ CGPA: 8.33/10.0
+◦ 50% merit scholarship awarded at admission
+◦ GATE (AE) 2025: 21.0/100.0
+Page 1 of 2
+
+Awards
+Emerging Talent in Open Source /external-link-alt
+IIT Bombay National FOSSEE Awards 2025 (Edition II)
+July 17, 2025
+FOSSEE, IIT Bombay
+1st Consolation Prize
+Scilab Case Study Hackathon
+Feb 20, 2025
+FOSSEE, IIT Bombay
+1st Place
+Project Presentation - Innovation Day
+Sept 26, 2024
+Amity University Mumbai
+3rd Place
+Poster Presentation - Innovation Day
+Feb 24, 2023
+Amity University Mumbai
+Certifications
+Aircraft Design
+NPTEL
+/external-link-alt
+May 2025
+Fundamentals of Supersonic and Hypersonic Flows
+NPTEL — Elite + Silver Medal
+/external-link-alt
+May 2024
+FreeFlyer Level 1 Certification
+a.i. solutions
+/external-link-alt
+April 2023
+Publications
+1. Saini, I. S., Chourushi, T., et al. (2025). Assessment of Existing OpenFOAM Solvers for Incompressible Flow Over a 2D
+Prism. CFD Letters 17(10):184-197, 2025. https://doi.org/10.37934/cfdl.17.10.184197 /external-link-alt
+2. Saini, I. S., Khadka, B., & Chourushi, T. (2024). Numerical Simulation of High–Speed Compressible Flow over Re-entry
+Vehicles using the OpenFOAM. 10th Symposium on Applied Aerodynamics and Design of Aerospace Vehicles & SPICES
+Workshop (SAROD 2024). (Paper ID - 57) /external-link-alt
+Projects
+Conceptual & Numerical study of Turbine-based Combined Cycle Engines and their mode transition /external-link-alt
+Final Year Project (Dissertation) Amity University Mumbai
+◦ Investigated a TBCC propulsion configuration integrating an afterburning low-bypass turbofan (GE F404-IN20) with a
+ramjet, enabling three operational modes from subsonic to high supersonic (Mach 0.8–4) and identified the critical mode
+transition zone between Mach 2.8–3.2 marked by a thrust imbalance.
+◦ Employed a coupled simulation approach using GasTurb for combustion analysis and custom MATLAB thermodynamic
+codes to model thrust sharing and air-splitting strategy; results showed increased specific thrust and improved TSFC
+performance post-transition, peaking near Mach 2.75 .
+Conceptual Design of Supersonic Unmanned Combat Aerial Vehicle
+National Aerospace Conceptual Design Competition (NACDeC-VIII) Aeronautical Society of India
+◦ Led and mentored a team of sophomores in the conceptual design of a supersonic UCAV, targeting a 5,000 kg payload
+delivery over a 1,000 km combat radius within a one-hour mission cycle.
+◦ Employed Aerodynamic modelling and Wing configuration, Performance and stability analysis, Propulsion sizing, Stealth
+design, Structural considerations, Sub-systems design, etc. to finalize a 18800 kg take-off gross weight and mission fuel
+fraction of 0.346, with performance analysis conducted in IRA conditions.
+◦ Selected a delta wing configuration and a turbofan with afterburner for Mach 2 cruise, enabling high-speed penetration and
+precision strike while ensuring sub-2,000 m take-off/landing performance.
+Conceptual Design for a TLAM (Tomahawk Land Attack Missile)
+Personal Project
+◦ Designed a long-range, subsonic cruise missile for precision land strikes, launched from ships and submarines, offering
+strategic versatility and deep strike capability.
+◦ Built to carry a warhead payload of up to 500 kg and has an operational range of at least 1500 km and operational up to
+speeds of Mach 0.8 at altitude between 30–50 meters AGL, to evade radar detection.
+◦ Additional high altitude cruise mode enabling long-range efficiency. Optimized fuselage employing Whitcomb Area Rule to
+reduce total drag up to 8% while in the transonic cruise stage.
+Design and Development of an Autonomous Navigation Aerial Vehicle (ANAV) for GPS-Denied Environments
+ISRO Robotics Challenge - URSC (IRoC-U) U. R. Rao Satellite Centre (URSC), ISRO
+◦ Participated in the IRoC-U challenge with a focus on implementing LiDAR-based 3D mapping, SLAM algorithms, and
+machine learning models for autonomous navigation and landing in GPS-denied environments.
+◦ Engineered a modular, dual-mode (manual/autonomous) system with a Emergency Response System (ERS), with
+high-accuracy terrain analysis and precision landing under dynamic conditions with a 50 cm landing radius accuracy,
+supported by real-time telemetry, redundancy systems.
+Minimum Length Rocket Nozzle Design using Method of Characteristics /external-link-alt
+Scilab Case-Study Hackathon FOSSEE, IIT Bombay
+◦ Developed a 2D minimum-length rocket nozzle design using the Theory of Characteristics, aiming for optimal Mach number
+and uniform flow at the exit and implemented a Scilab-based numerical solver for supersonic, inviscid, and irrotational flow
+equations.
+◦ Incorporated a surrogate-based optimization approach to refine the nozzle profile, improving aerodynamic efficiency
+while reducing computational load; emphasized performance optimization in the diverging section.
+Validation and Verification of Aerospike Designs in Supersonic Flow /external-link-alt
+OpenFOAM Case Study Project FOSSEE, IIT Bombay
+◦ Conducted a numerical study in OpenFOAM to analyze supersonic flow over blunt bodies with and without an aerospike,
+evaluating the effects of varying Mach numbers with a constant Reynold’s number on pressure distribution, velocity profiles,
+and temperature gradients; validated results against Crawford’s experimental data.
+Page 2 of 2

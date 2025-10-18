@@ -47,36 +47,36 @@ const config: Config = {
           '100%': { transform: 'rotate(360deg) translateX(140px) rotate(-360deg)' },
         },
         'revolve-1': {
-          '0%': { transform: 'rotate(0deg) translateX(140px) rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg) translateX(140px) rotate(-360deg)' },
+          '0%': { transform: 'rotate(0deg) translateX(var(--orbit-r)) rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg) translateX(var(--orbit-r)) rotate(-360deg)' },
         },
         'revolve-2': {
-          '0%': { transform: 'rotate(45deg) translateX(140px) rotate(-45deg)' },
-          '100%': { transform: 'rotate(405deg) translateX(140px) rotate(-405deg)' },
+          '0%': { transform: 'rotate(45deg) translateX(var(--orbit-r)) rotate(-45deg)' },
+          '100%': { transform: 'rotate(405deg) translateX(var(--orbit-r)) rotate(-405deg)' },
         },
         'revolve-3': {
-          '0%': { transform: 'rotate(90deg) translateX(140px) rotate(-90deg)' },
-          '100%': { transform: 'rotate(450deg) translateX(140px) rotate(-450deg)' },
+          '0%': { transform: 'rotate(90deg) translateX(var(--orbit-r)) rotate(-90deg)' },
+          '100%': { transform: 'rotate(450deg) translateX(var(--orbit-r)) rotate(-450deg)' },
         },
         'revolve-4': {
-          '0%': { transform: 'rotate(135deg) translateX(140px) rotate(-135deg)' },
-          '100%': { transform: 'rotate(495deg) translateX(140px) rotate(-495deg)' },
+          '0%': { transform: 'rotate(135deg) translateX(var(--orbit-r)) rotate(-135deg)' },
+          '100%': { transform: 'rotate(495deg) translateX(var(--orbit-r)) rotate(-495deg)' },
         },
         'revolve-5': {
-          '0%': { transform: 'rotate(180deg) translateX(140px) rotate(-180deg)' },
-          '100%': { transform: 'rotate(540deg) translateX(140px) rotate(-540deg)' },
+          '0%': { transform: 'rotate(180deg) translateX(var(--orbit-r)) rotate(-180deg)' },
+          '100%': { transform: 'rotate(540deg) translateX(var(--orbit-r)) rotate(-540deg)' },
         },
         'revolve-6': {
-          '0%': { transform: 'rotate(225deg) translateX(140px) rotate(-225deg)' },
-          '100%': { transform: 'rotate(585deg) translateX(140px) rotate(-585deg)' },
+          '0%': { transform: 'rotate(225deg) translateX(var(--orbit-r)) rotate(-225deg)' },
+          '100%': { transform: 'rotate(585deg) translateX(var(--orbit-r)) rotate(-585deg)' },
         },
         'revolve-7': {
-          '0%': { transform: 'rotate(270deg) translateX(140px) rotate(-270deg)' },
-          '100%': { transform: 'rotate(630deg) translateX(140px) rotate(-630deg)' },
+          '0%': { transform: 'rotate(270deg) translateX(var(--orbit-r)) rotate(-270deg)' },
+          '100%': { transform: 'rotate(630deg) translateX(var(--orbit-r)) rotate(-630deg)' },
         },
         'revolve-8': {
-          '0%': { transform: 'rotate(315deg) translateX(140px) rotate(-315deg)' },
-          '100%': { transform: 'rotate(675deg) translateX(140px) rotate(-675deg)' },
+          '0%': { transform: 'rotate(315deg) translateX(var(--orbit-r)) rotate(-315deg)' },
+          '100%': { transform: 'rotate(675deg) translateX(var(--orbit-r)) rotate(-675deg)' },
         },
         'pulse-glow': {
           '0%, 100%': {

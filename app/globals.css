@@ -34,12 +34,22 @@ body {
   position: relative;
   overscroll-behavior: none;
   font-family: 'Space Grotesk', sans-serif;
-  cursor: auto; /* Keep default cursor visible */
+  cursor: auto !important; /* Force cursor to stay visible */
+}
+
+/* Ensure cursor is always visible */
+* {
+  cursor: auto !important;
+}
+
+/* Override any custom cursor hiding */
+body, html, div, section, main, article {
+  cursor: auto !important;
 }
 
 @media (max-width: 768px) {
   body {
-    cursor: auto;
+    cursor: auto !important;
   }
 }
 

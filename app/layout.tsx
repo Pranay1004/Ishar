@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Ishar Singh Saini | Aerospace Engineer - Hypersonics, CFD, UAV Systems",
   description:
     "Aerospace engineer specializing in high-speed aerodynamics, CFD simulation, propulsion systems, and UAV prototyping. TBCC propulsion research, hypersonic flow analysis, precision landing systems.",
+  icons: {
+    icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🚀</text></svg>",
+  },
   keywords: [
     "aerospace engineer",
     "CFD specialist",

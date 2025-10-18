@@ -1,19 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Rocket, Zap, Wind, Gauge, Mail, Linkedin, Phone, ChevronDown, Plane, Target, Navigation, Github } from 'lucide-react';
 
 export default function Home() {
-  const rocketRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!rocketRef.current) return;
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      rocketRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) rotateX(${-y}deg) rotateY(${x}deg)`;
-    };
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -23,9 +14,6 @@ export default function Home() {
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
@@ -96,7 +84,7 @@ export default function Home() {
           </p>
 
           {/* 3D Floating Rocket */}
-          <div ref={rocketRef} className="relative mx-auto w-32 h-32 my-12 animate-float" style={{ perspective: '1200px' }}>
+          <div className="relative mx-auto w-32 h-32 my-12 animate-float">
             <Rocket className="w-full h-full text-accent-cyan glow-cyan" />
           </div>
 
@@ -127,81 +115,68 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Visual - Skills Circle */}
             <div className="relative reveal">
-              <div className="relative w-72 h-72 mx-auto">
-                <div className="absolute inset-0 rounded-full bg-gradient-accent opacity-20 animate-pulse-glow" />
-                <div className="absolute inset-4 glass-panel rounded-full flex items-center justify-center">
+              <div className="relative w-96 h-96 md:w-[28rem] md:h-[28rem] mx-auto overflow-visible [--orbit-r:8rem] md:[--orbit-r:9rem]">
+                <div className="absolute inset-16 md:inset-20 glass-panel rounded-full flex items-center justify-center">
                   <div className="text-center">
                     <Gauge className="w-16 h-16 text-accent-cyan mx-auto mb-3" />
                     <div className="font-display text-3xl gradient-text font-bold">SKILLS</div>
-                    <div className="text-xs text-white/50 mt-2">Aerospace Engineering</div>
                   </div>
                 </div>
 
-                {/* Revolving Skills - Like Breaking News */}
-                <div className="absolute inset-0">
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-1 text-xs">
-                      <Wind className="w-4 h-4 text-accent-cyan inline mr-1" />
-                      <span className="font-medium">CFD</span>
-                    </div>
+                {/* Revolving Skills - Each positioned at center for orbit */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-1 text-xs whitespace-nowrap">
+                    <Wind className="w-3 h-3 text-accent-cyan inline mr-1" />
+                    <span className="font-medium">CFD</span>
                   </div>
                 </div>
                 
-                <div className="absolute inset-0">
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-2 text-xs">
-                      <Zap className="w-4 h-4 text-accent-orange inline mr-1" />
-                      <span className="font-medium">Hypersonics</span>
-                    </div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-2 text-xs whitespace-nowrap">
+                    <Zap className="w-3 h-3 text-accent-orange inline mr-1" />
+                    <span className="font-medium">Hypersonics</span>
                   </div>
                 </div>
 
-                <div className="absolute inset-0">
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-3 text-xs">
-                      <Rocket className="w-4 h-4 text-accent-purple inline mr-1" />
-                      <span className="font-medium">Propulsion</span>
-                    </div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-3 text-xs whitespace-nowrap">
+                    <Rocket className="w-3 h-3 text-accent-purple inline mr-1" />
+                    <span className="font-medium">Propulsion</span>
                   </div>
                 </div>
 
-                <div className="absolute inset-0">
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-4 text-xs">
-                      <span className="font-medium">OpenFOAM</span>
-                    </div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-4 text-xs whitespace-nowrap">
+                    <Navigation className="w-3 h-3 text-accent-cyan inline mr-1" />
+                    <span className="font-medium">OpenFOAM</span>
                   </div>
                 </div>
 
-                <div className="absolute inset-0">
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-5 text-xs">
-                      <span className="font-medium">Ansys</span>
-                    </div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-5 text-xs whitespace-nowrap">
+                    <Target className="w-3 h-3 text-accent-orange inline mr-1" />
+                    <span className="font-medium">Ansys</span>
                   </div>
                 </div>
 
-                <div className="absolute inset-0">
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-6 text-xs">
-                      <span className="font-medium">SolidWorks</span>
-                    </div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-6 text-xs whitespace-nowrap">
+                    <Plane className="w-3 h-3 text-accent-purple inline mr-1" />
+                    <span className="font-medium">SolidWorks</span>
                   </div>
                 </div>
 
-                <div className="absolute inset-0">
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-7 text-xs">
-                      <span className="font-medium">MATLAB</span>
-                    </div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-7 text-xs whitespace-nowrap">
+                    <Gauge className="w-3 h-3 text-accent-cyan inline mr-1" />
+                    <span className="font-medium">MATLAB</span>
                   </div>
                 </div>
 
-                <div className="absolute inset-0">
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2">
-                    <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-8 text-xs">
-                      <span className="font-medium">Python</span>
-                    </div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="glass-panel px-3 py-1.5 rounded-full animate-revolve-8 text-xs whitespace-nowrap">
+                    <span className="font-medium text-accent-orange">🐍</span>
+                    <span className="font-medium ml-1">Python</span>
                   </div>
                 </div>
               </div>
@@ -213,15 +188,19 @@ export default function Home() {
                 AEROSPACE ENGINEER
               </h2>
               <p className="text-lg text-white/80 leading-relaxed">
-                Fresh aerospace engineering graduate with expertise in CFD simulation and hypersonic analysis. 
-                Presented research at <span className="text-accent-cyan font-semibold">SAROD 2024</span>,
-                validated TBCC propulsion across Mach 0.8&ndash;4.0, and achieved &le;2 cm UAV landing precision during academic projects.
+                Presented hypersonic CFD analysis at <span className="text-accent-cyan font-semibold">SAROD 2024</span> and got awarded by a National Award by{' '}
+                <span className="text-accent-cyan font-semibold">IIT Bombay</span>. I&apos;m an Aerospace graduate specializing in high-speed aerodynamics, CFD, and propulsion systems. 
+                Known for rapid problem-solving and hands-on troubleshooting in high-pressure environments; applied across CFD simulations, CAD modelling, and UAV prototyping.
               </p>
               <p className="text-lg text-white/80 leading-relaxed">
-                Specialized in high-speed aerodynamics, CFD simulation, and propulsion systems. Gained experience through internships at{' '}
-                <span className="text-accent-purple font-semibold">TATA Advanced Systems</span> on hybrid UAV analysis,{' '}
-                <span className="text-accent-cyan font-semibold">IIT Bombay</span> on precision landing systems, and{' '}
-                <span className="text-accent-purple font-semibold">FOSSEE</span> on hypersonic OpenFOAM research (1st Rank nationally).
+                Proficient in CFD softwares like <span className="text-accent-purple font-semibold">OpenFOAM</span>, <span className="text-accent-orange font-semibold">Ansys</span>, and{' '}
+                <span className="text-accent-cyan font-semibold">HiFUN</span>, and making high quality Structured Meshes using softwares like ICEM CFD, GridPro, and Ansys Mesh-Modeler. 
+                Additionally, experienced in CAD modeling and design using <span className="text-accent-purple font-semibold">SolidWorks</span>, AutoCAD, and ANSYS, 
+                as I emphasize on functional design approaches and engineering practicality.
+              </p>
+              <p className="text-lg text-white/80 leading-relaxed">
+                Strong competencies in <span className="text-accent-orange font-semibold">Unmanned Aerial Systems piloting</span> (Fixed and Rotary Wing), and aerodynamic design align with a passion for innovative aerospace solutions and defense applications. 
+                My work bridges theory, simulation, and real-world application, and I&apos;m now ready to solve cutting-edge challenges in next-gen propulsion and aerothermal systems.
               </p>
 
               {/* Skill Categories Grid - No Percentages */}
@@ -230,14 +209,14 @@ export default function Home() {
                   <div className="text-sm text-accent-cyan font-semibold mb-2">CFD & Analysis</div>
                   <div className="text-xs text-white/70 space-y-1">
                     <div>OpenFOAM, HiFUN, Ansys Fluent</div>
-                    <div>Mesh Generation, Turbulence</div>
+                    <div>ICEM CFD, GridPro, Meshing</div>
                   </div>
                 </div>
                 <div className="glass-panel p-4 rounded-lg reveal" style={{ animationDelay: '0.2s' }}>
                   <div className="text-sm text-accent-purple font-semibold mb-2">Design & CAD</div>
                   <div className="text-xs text-white/70 space-y-1">
-                    <div>SolidWorks, CATIA, OpenVSP</div>
-                    <div>UAV Prototyping, FEM</div>
+                    <div>SolidWorks, AutoCAD, CATIA</div>
+                    <div>UAV Design, FEM Analysis</div>
                   </div>
                 </div>
                 <div className="glass-panel p-4 rounded-lg reveal" style={{ animationDelay: '0.3s' }}>
@@ -250,8 +229,8 @@ export default function Home() {
                 <div className="glass-panel p-4 rounded-lg reveal" style={{ animationDelay: '0.4s' }}>
                   <div className="text-sm text-accent-cyan font-semibold mb-2">Specialization</div>
                   <div className="text-xs text-white/70 space-y-1">
-                    <div>Hypersonics, TBCC</div>
-                    <div>Wind Tunnel Testing</div>
+                    <div>Hypersonics, UAS Piloting</div>
+                    <div>Wind Tunnel Testing, TBCC</div>
                   </div>
                 </div>
               </div>
@@ -264,10 +243,10 @@ export default function Home() {
       <section className="relative py-16 px-4 bg-gradient-accent/10">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
-            { value: 'SAROD 2024', label: 'Hypersonic CFD Presentation' },
-            { value: 'Mach 0.8&ndash;4', label: 'TBCC Research Range' },
-            { value: '&le;2 cm', label: 'UAV Landing Accuracy' },
-            { value: '1st Rank', label: 'FOSSEE National Screening' },
+            { value: '7% Drag', label: 'Reduction in Radome Design' },
+            { value: '50% Weight', label: 'Reduction with Composites' },
+            { value: '2cm Accuracy', label: 'RTK GPS Landing System' },
+            { value: '1st Rank', label: '300+ National Participants' },
           ].map((stat, i) => (
             <div key={i} className="glass-panel p-6 rounded-lg reveal" style={{ animationDelay: `${i * 0.15}s` }}>
               <div className="font-display text-2xl md:text-3xl gradient-text font-bold">{stat.value}</div>
@@ -488,110 +467,98 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Timeline Container */}
+          {/* Horizontal Timeline */}
           <div className="relative">
-            {/* Center Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-accent opacity-30"></div>
+            {/* Timeline Line */}
+            <div className="absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-orange opacity-40 hidden md:block"></div>
             
             {/* Timeline Items */}
-            <div className="space-y-16">
-              {/* TATA Advanced Systems - Right */}
-              <div className="relative flex items-center">
-                <div className="w-1/2 pr-8 text-right reveal" style={{ animationDelay: '0.1s' }}>
-                  <div className="glass-panel p-6 rounded-xl hover:scale-[1.02] transition-all duration-300">
-                    <div className="flex items-center justify-end gap-3 mb-3">
-                      <div className="text-right">
-                        <h3 className="font-display text-xl font-bold gradient-text">CFD Research Intern</h3>
-                        <p className="text-accent-cyan font-semibold">TATA Advanced Systems</p>
-                      </div>
-                      <div className="glass-panel p-3 rounded-full">
-                        <Rocket className="w-6 h-6 text-accent-orange" />
-                      </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+              {/* TATA Advanced Systems */}
+              <div className="relative flex flex-col reveal" style={{ animationDelay: '0.1s' }}>
+                {/* Timeline Dot */}
+                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-5 h-5 bg-accent-orange rounded-full border-4 border-space shadow-lg shadow-accent-orange/50 hidden md:block z-10"></div>
+                
+                <div className="glass-panel p-6 rounded-xl hover:scale-[1.02] transition-all duration-300 flex flex-col h-full mt-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="glass-panel p-3 rounded-full">
+                      <Rocket className="w-6 h-6 text-accent-orange" />
                     </div>
-                    <div className="text-sm text-white/60 mb-3">Jun 2024 – Aug 2024 • Hyderabad</div>
-                    <div className="space-y-2 text-sm text-white/80">
-                      <p>• Analyzed hybrid UAV crosswind performance using advanced CFD simulations</p>
-                      <p>• Optimized wing design parameters resulting in 15% drag reduction</p>
-                      <p>• Validated computational models against wind tunnel test data</p>
-                    </div>
-                    <div className="flex justify-end gap-2 mt-4 text-xs">
-                      <span className="glass-panel px-2 py-1 rounded-full text-accent-cyan">Ansys Fluent</span>
-                      <span className="glass-panel px-2 py-1 rounded-full text-accent-purple">UAV Design</span>
-                      <span className="glass-panel px-2 py-1 rounded-full text-accent-orange">Wind Tunnel</span>
+                    <div className="flex-1">
+                      <h3 className="font-display text-base font-bold gradient-text leading-tight">Concept Design Intern</h3>
+                      <p className="text-accent-cyan font-semibold text-xs">TATA Advanced Systems</p>
                     </div>
                   </div>
-                </div>
-
-                {/* Center Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-accent rounded-full border-4 border-space animate-pulse-glow"></div>
-
-                <div className="w-1/2 pl-8"></div>
-              </div>
-
-              {/* FOSSEE IIT Bombay - Left */}
-              <div className="relative flex items-center">
-                <div className="w-1/2 pr-8"></div>
-
-                {/* Center Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-accent rounded-full border-4 border-space animate-pulse-glow"></div>
-
-                <div className="w-1/2 pl-8 reveal" style={{ animationDelay: '0.3s' }}>
-                  <div className="glass-panel p-6 rounded-xl hover:scale-[1.02] transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="glass-panel p-3 rounded-full">
-                        <Wind className="w-6 h-6 text-accent-cyan" />
-                      </div>
-                      <div>
-                        <h3 className="font-display text-xl font-bold gradient-text">OpenFOAM Fellow</h3>
-                        <p className="text-accent-purple font-semibold">FOSSEE, IIT Bombay</p>
-                      </div>
-                    </div>
-                    <div className="text-sm text-white/60 mb-3">Mar 2024 – Jun 2024 • Mumbai</div>
-                    <div className="space-y-2 text-sm text-white/80">
-                      <p>• Developed hypersonic CFD solver using OpenFOAM framework</p>
-                      <p>• Achieved 1st Rank in National OpenFOAM Screening (300+ participants)</p>
-                      <p>• Presented research findings at SAROD 2024 conference</p>
-                    </div>
-                    <div className="flex gap-2 mt-4 text-xs">
-                      <span className="glass-panel px-2 py-1 rounded-full text-accent-cyan">OpenFOAM</span>
-                      <span className="glass-panel px-2 py-1 rounded-full text-accent-purple">Hypersonics</span>
-                      <span className="glass-panel px-2 py-1 rounded-full text-accent-orange">1st Rank</span>
-                    </div>
+                  <div className="text-xs text-white/60 mb-3">Jun 2024 – Aug 2024 • Bengaluru</div>
+                  <div className="space-y-2 text-sm text-white/80 mb-4 flex-grow">
+                    <p>• Analyzed hybrid UAV crosswind performance using HiFUN CFD software</p>
+                    <p>• Investigated radome aerodynamics achieving 7% drag reduction</p>
+                    <p>• Generated high-quality meshes from complex geometries on Linux HPC</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 text-xs mt-auto">
+                    <span className="glass-panel px-2 py-1 rounded-full text-accent-cyan">HiFUN CFD</span>
+                    <span className="glass-panel px-2 py-1 rounded-full text-accent-purple">Linux HPC</span>
+                    <span className="glass-panel px-2 py-1 rounded-full text-accent-orange">Mesh Generation</span>
                   </div>
                 </div>
               </div>
 
-              {/* IIT Bombay Precision Landing - Right */}
-              <div className="relative flex items-center">
-                <div className="w-1/2 pr-8 text-right reveal" style={{ animationDelay: '0.5s' }}>
-                  <div className="glass-panel p-6 rounded-xl hover:scale-[1.02] transition-all duration-300">
-                    <div className="flex items-center justify-end gap-3 mb-3">
-                      <div className="text-right">
-                        <h3 className="font-display text-xl font-bold gradient-text">Research Intern</h3>
-                        <p className="text-accent-orange font-semibold">IIT Bombay Aerospace</p>
-                      </div>
-                      <div className="glass-panel p-3 rounded-full">
-                        <Target className="w-6 h-6 text-accent-purple" />
-                      </div>
+              {/* FOSSEE IIT Bombay */}
+              <div className="relative flex flex-col reveal" style={{ animationDelay: '0.3s' }}>
+                {/* Timeline Dot */}
+                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-5 h-5 bg-accent-purple rounded-full border-4 border-space shadow-lg shadow-accent-purple/50 hidden md:block z-10"></div>
+                
+                <div className="glass-panel p-6 rounded-xl hover:scale-[1.02] transition-all duration-300 flex flex-col h-full mt-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="glass-panel p-3 rounded-full">
+                      <Wind className="w-6 h-6 text-accent-cyan" />
                     </div>
-                    <div className="text-sm text-white/60 mb-3">Jun 2023 – Aug 2023 • Mumbai</div>
-                    <div className="space-y-2 text-sm text-white/80">
-                      <p>• Developed autonomous UAV precision landing system</p>
-                      <p>• Achieved &le;2cm landing accuracy through sensor fusion algorithms</p>
-                      <p>• Integrated vision-based navigation with GPS correction</p>
-                    </div>
-                    <div className="flex justify-end gap-2 mt-4 text-xs">
-                      <span className="glass-panel px-2 py-1 rounded-full text-accent-cyan">MATLAB</span>
-                      <span className="glass-panel px-2 py-1 rounded-full text-accent-purple">Control Systems</span>
-                      <span className="glass-panel px-2 py-1 rounded-full text-accent-orange">&le;2cm Accuracy</span>
+                    <div className="flex-1">
+                      <h3 className="font-display text-base font-bold gradient-text leading-tight">Semester Long Intern</h3>
+                      <p className="text-accent-purple font-semibold text-xs">FOSSEE, IIT Bombay</p>
                     </div>
                   </div>
+                  <div className="text-xs text-white/60 mb-3">Mar 2024 – Jun 2024 • Mumbai</div>
+                  <div className="space-y-2 text-sm text-white/80 mb-4 flex-grow">
+                    <p>• Developed hypersonic CFD solver using OpenFOAM framework</p>
+                    <p>• Achieved 1st Rank in National OpenFOAM Screening (300+ participants)</p>
+                    <p>• Presented research findings at SAROD 2024 conference</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 text-xs mt-auto">
+                    <span className="glass-panel px-2 py-1 rounded-full text-accent-cyan">OpenFOAM</span>
+                    <span className="glass-panel px-2 py-1 rounded-full text-accent-purple">Hypersonics</span>
+                    <span className="glass-panel px-2 py-1 rounded-full text-accent-orange">1st Rank</span>
+                  </div>
                 </div>
+              </div>
 
-                {/* Center Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-accent rounded-full border-4 border-space animate-pulse-glow"></div>
-
-                <div className="w-1/2 pl-8"></div>
+              {/* IIT Bombay Precision Landing */}
+              <div className="relative flex flex-col reveal" style={{ animationDelay: '0.5s' }}>
+                {/* Timeline Dot */}
+                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-5 h-5 bg-accent-cyan rounded-full border-4 border-space shadow-lg shadow-accent-cyan/50 hidden md:block z-10"></div>
+                
+                <div className="glass-panel p-6 rounded-xl hover:scale-[1.02] transition-all duration-300 flex flex-col h-full mt-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="glass-panel p-3 rounded-full">
+                      <Target className="w-6 h-6 text-accent-purple" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-base font-bold gradient-text leading-tight">Project & Research Intern</h3>
+                      <p className="text-accent-orange font-semibold text-xs">IIT Bombay Aerospace</p>
+                    </div>
+                  </div>
+                  <div className="text-xs text-white/60 mb-3">Jun 2023 – Aug 2023 • Mumbai</div>
+                  <div className="space-y-2 text-sm text-white/80 mb-4 flex-grow">
+                    <p>• Designed precision landing drone under Prof. Arnab Maity</p>
+                    <p>• Conducted FEM analysis achieving 50% weight reduction with composites</p>
+                    <p>• Achieved 2cm landing accuracy using RTK GPS and ArUco markers</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 text-xs mt-auto">
+                    <span className="glass-panel px-2 py-1 rounded-full text-accent-cyan">Ansys FEM</span>
+                    <span className="glass-panel px-2 py-1 rounded-full text-accent-purple">SolidWorks</span>
+                    <span className="glass-panel px-2 py-1 rounded-full text-accent-orange">RTK GPS</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -602,11 +569,12 @@ export default function Home() {
                   <Gauge className="w-8 h-8 text-accent-cyan" />
                   <div>
                     <h3 className="font-display text-lg font-bold gradient-text">B.Tech Aerospace Engineering</h3>
-                    <p className="text-accent-purple font-semibold">Lovely Professional University</p>
+                    <p className="text-accent-purple font-semibold">Amity University Mumbai</p>
+                    <p className="text-accent-cyan text-xs">Minors in Business Management</p>
                   </div>
                 </div>
-                <div className="text-sm text-white/60 mb-2">2021 – 2025 • Punjab</div>
-                <div className="text-sm text-white/80">CGPA: 8.33/10 • GATE AIR: 210/100 (99.79 percentile)</div>
+                <div className="text-sm text-white/60 mb-2">2021 – 2025 • Mumbai</div>
+                <div className="text-sm text-white/80">CGPA: 8.33/10</div>
               </div>
             </div>
           </div>
@@ -799,13 +767,13 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-8 reveal">
               {/* Email Card */}
               <div className="glass-panel p-6 rounded-lg group cursor-pointer hover:scale-[1.02] transition-all duration-300"
-                   onClick={() => navigator.clipboard.writeText('peisharsaini@yahoo.com')}>
+                   onClick={() => navigator.clipboard.writeText('isharsaini@yahoo.com')}>
                 <div className="text-center">
                   <div className="glass-panel p-4 rounded-full w-fit mx-auto mb-4">
                     <Mail className="w-8 h-8 text-accent-cyan" />
                   </div>
                   <div className="font-semibold text-white mb-2">Email</div>
-                  <div className="text-white/70 text-sm mb-3">peisharsaini@yahoo.com</div>
+                  <div className="text-white/70 text-sm mb-3">isharsaini@yahoo.com</div>
                   <div className="text-xs text-accent-cyan font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                     Click to copy
                   </div>
@@ -847,29 +815,15 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Availability Status */}
-            <div className="glass-panel p-8 rounded-lg mt-12 text-center reveal">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="font-semibold text-white text-lg">Available for opportunities</span>
-              </div>
-              <div className="text-sm text-white/70 grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                <div>• Aerospace R&D positions</div>
-                <div>• CFD simulation projects</div>
-                <div>• Hypersonic research collaborations</div>
-                <div>• Graduate research opportunities</div>
-              </div>
-            </div>
-
             {/* Resume Download */}
             <div className="text-center mt-8 reveal">
-              <button className="px-8 py-4 glass-panel hover:bg-gradient-accent hover:scale-[1.02] transition-all duration-300 rounded-lg font-medium text-white group">
+              <a href="/resume/Ishar_Resume.pdf" download="Ishar_Singh_Saini_Resume.pdf" className="inline-block px-8 py-4 glass-panel hover:bg-gradient-accent hover:scale-[1.02] transition-all duration-300 rounded-lg font-medium text-white group">
                 <span className="flex items-center justify-center gap-3">
                   <span className="text-2xl">📄</span>
                   <span>Download PDF Resume</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </span>
-              </button>
+              </a>
             </div>
           </div>
 
