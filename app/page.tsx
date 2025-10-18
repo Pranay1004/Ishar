@@ -31,9 +31,6 @@ export default function Home() {
     }
   };
 
-export default function Home() {
-  const rocketRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!rocketRef.current) return;
