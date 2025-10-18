@@ -12,10 +12,25 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  manifest: '/site.webmanifest',
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>✈️</text></svg>",
-    shortcut: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>✈️</text></svg>",
-    apple: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>✈️</text></svg>",
+    icon: [
+      {
+        url: '/favicon.svg',
+        type: 'image/svg+xml',
+      },
+      {
+        url: '/favicon-16x16.svg',
+        sizes: '16x16',
+        type: 'image/svg+xml',
+      },
+    ],
+    shortcut: '/favicon.svg',
+    apple: {
+      url: '/apple-touch-icon.svg',
+      sizes: '180x180',
+      type: 'image/svg+xml',
+    },
   },
   keywords: [
     // Core Aerospace Engineering

@@ -1,0 +1,33 @@
+{
+  "name": "Ishar Singh Saini - Aerospace Engineer",
+  "short_name": "Ishar Portfolio",
+  "description": "Aerospace engineer specializing in hypersonics, CFD, and propulsion systems",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e27",
+  "theme_color": "#00f0ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.svg", 
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "apple touch icon"
+    }
+  ],
+  "categories": ["engineering", "aerospace", "portfolio", "professional"],
+  "screenshots": [
+    {
+      "src": "/og-image.jpg",
+      "type": "image/jpeg",
+      "sizes": "1200x630",
+      "form_factor": "wide"
+    }
+  ]
+}

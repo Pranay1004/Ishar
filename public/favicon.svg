@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="jetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fighter Jet Body -->
+  <path d="M2 16L28 16" stroke="url(#jetGradient)" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Wings -->
+  <path d="M10 10L20 16L10 22" fill="url(#jetGradient)" stroke="url(#jetGradient)" stroke-width="1"/>
+  
+  <!-- Tail Fins -->
+  <path d="M4 13L4 19" stroke="url(#jetGradient)" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Nose Cone -->
+  <path d="M22 16L28 13L28 19L22 16" fill="url(#jetGradient)" stroke="url(#jetGradient)" stroke-width="1"/>
+  
+  <!-- Cockpit -->
+  <circle cx="18" cy="16" r="1.5" fill="#ffffff"/>
+  
+  <!-- Exhaust -->
+  <path d="M6 15L2 14L2 18L6 17" fill="#ff6b35" stroke="#ff6b35" stroke-width="1"/>
+</svg>
