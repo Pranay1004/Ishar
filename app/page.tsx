@@ -1,10 +1,47 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Rocket, Zap, Wind, Gauge, Mail, Linkedin, Phone, ChevronDown, Plane, Target, Navigation, Github } from 'lucide-react';
 
 export default function Home() {
+  const rocketRef = useRef<HTMLDivElement>(null);
+  const [copiedItem, setCopiedItem] = useState<string | null>(null);
+
+  const copyToClipboard = async (text: string, itemType: string) => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        // Fallback for non-HTTPS environments
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        textArea.remove();
+      }
+      setCopiedItem(itemType);
+      setTimeout(() => setCopiedItem(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
+export default function Home() {
+  const rocketRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!rocketRef.current) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      rocketRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) rotateX(${-y}deg) rotateY(${x}deg)`;
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -14,6 +51,9 @@ export default function Home() {
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
@@ -83,9 +123,20 @@ export default function Home() {
             flight-ready performance.
           </p>
 
-          {/* 3D Floating Rocket */}
-          <div className="relative mx-auto w-32 h-32 my-12 animate-float">
-            <Rocket className="w-full h-full text-accent-cyan glow-cyan" />
+          {/* 3D Floating Fighter Jet */}
+          <div ref={rocketRef} className="relative mx-auto w-32 h-32 my-12 animate-float" style={{ perspective: '1200px' }}>
+            <svg className="w-full h-full text-accent-cyan glow-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {/* Main fuselage */}
+              <path d="M2 12L22 12"/>
+              {/* Wings */}
+              <path d="M8 8L16 12L8 16"/>
+              {/* Tail fins */}
+              <path d="M4 10L4 14"/>
+              {/* Nose cone */}
+              <path d="M18 12L22 10L22 14L18 12"/>
+              {/* Cockpit */}
+              <circle cx="14" cy="12" r="1"/>
+            </svg>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -767,7 +818,7 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-8 reveal">
               {/* Email Card */}
               <div className="glass-panel p-6 rounded-lg group cursor-pointer hover:scale-[1.02] transition-all duration-300"
-                   onClick={() => navigator.clipboard.writeText('isharsaini@yahoo.com')}>
+                   onClick={() => copyToClipboard('isharsaini@yahoo.com', 'email')}>
                 <div className="text-center">
                   <div className="glass-panel p-4 rounded-full w-fit mx-auto mb-4">
                     <Mail className="w-8 h-8 text-accent-cyan" />
@@ -775,14 +826,14 @@ export default function Home() {
                   <div className="font-semibold text-white mb-2">Email</div>
                   <div className="text-white/70 text-sm mb-3">isharsaini@yahoo.com</div>
                   <div className="text-xs text-accent-cyan font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    Click to copy
+                    {copiedItem === 'email' ? 'Copied!' : 'Click to copy'}
                   </div>
                 </div>
               </div>
 
               {/* Phone Card */}
               <div className="glass-panel p-6 rounded-lg group cursor-pointer hover:scale-[1.02] transition-all duration-300"
-                   onClick={() => navigator.clipboard.writeText('+91 8104156108')}>
+                   onClick={() => copyToClipboard('+91 8104156108', 'phone')}>
                 <div className="text-center">
                   <div className="glass-panel p-4 rounded-full w-fit mx-auto mb-4">
                     <Phone className="w-8 h-8 text-accent-purple" />
@@ -790,7 +841,7 @@ export default function Home() {
                   <div className="font-semibold text-white mb-2">Phone / WhatsApp</div>
                   <div className="text-white/70 text-sm mb-3">+91 8104156108</div>
                   <div className="text-xs text-accent-purple font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    Click to copy
+                    {copiedItem === 'phone' ? 'Copied!' : 'Click to copy'}
                   </div>
                 </div>
               </div>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Main Portfolio Page -->
+  <url>
+    <loc>https://ishar-aerospace.vercel.app/</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ishar-aerospace.vercel.app/og-image.jpg</image:loc>
+      <image:caption>Ishar Singh Saini - Aerospace Engineer Portfolio</image:caption>
+      <image:title>Aerospace Engineer specializing in Hypersonics and CFD</image:title>
+    </image:image>
+  </url>
+
+  <!-- Resume PDF -->
+  <url>
+    <loc>https://ishar-aerospace.vercel.app/resume/Ishar_Resume.pdf</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sections (deep links) -->
+  <url>
+    <loc>https://ishar-aerospace.vercel.app/#about</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ishar-aerospace.vercel.app/#skills</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ishar-aerospace.vercel.app/#projects</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ishar-aerospace.vercel.app/#experience</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ishar-aerospace.vercel.app/#research</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ishar-aerospace.vercel.app/#contact</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
