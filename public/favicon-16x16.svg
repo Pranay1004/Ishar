@@ -6,21 +6,21 @@
     </linearGradient>
   </defs>
   
-  <!-- Fighter Jet Body -->
-  <path d="M1 8L15 8" stroke="url(#jetGradient16)" stroke-width="1" stroke-linecap="round"/>
+  <!-- Main fuselage body -->
+  <path d="M1 8L14 8" stroke="url(#jetGradient16)" stroke-width="1" stroke-linecap="round"/>
   
-  <!-- Wings -->
-  <path d="M5 5L10 8L5 11" fill="url(#jetGradient16)" stroke="url(#jetGradient16)" stroke-width="0.5"/>
+  <!-- Main wings - swept back delta style -->
+  <path d="M4 5L9 8L4 11Z" fill="url(#jetGradient16)" stroke="url(#jetGradient16)" stroke-width="0.5"/>
   
-  <!-- Tail Fins -->
-  <path d="M2 7L2 9" stroke="url(#jetGradient16)" stroke-width="1" stroke-linecap="round"/>
+  <!-- Tail vertical stabilizer -->
+  <path d="M2 7L2 9L1 8Z" fill="url(#jetGradient16)" stroke="url(#jetGradient16)" stroke-width="0.5"/>
   
-  <!-- Nose Cone -->
-  <path d="M11 8L15 6.5L15 9.5L11 8" fill="url(#jetGradient16)" stroke="url(#jetGradient16)" stroke-width="0.5"/>
+  <!-- Nose cone - pointed -->
+  <path d="M14 8L15 7L15 9Z" fill="url(#jetGradient16)" stroke="url(#jetGradient16)" stroke-width="0.5"/>
   
-  <!-- Cockpit -->
-  <circle cx="9" cy="8" r="0.8" fill="#ffffff"/>
+  <!-- Cockpit canopy -->
+  <path d="M10 7.5L12 7.5L12 8.5L10 8.5Z" fill="rgba(255,255,255,0.3)" stroke="url(#jetGradient16)" stroke-width="0.3"/>
   
-  <!-- Exhaust -->
-  <path d="M3 7.5L1 7L1 9L3 8.5" fill="#ff6b35" stroke="#ff6b35" stroke-width="0.5"/>
+  <!-- Afterburner exhaust -->
+  <path d="M1 7.5L0 7L0 9L1 8.5" fill="#ff6b35" stroke="#ff6b35" stroke-width="0.5"/>
 </svg>

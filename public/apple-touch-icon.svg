@@ -9,21 +9,30 @@
   <!-- Background Circle -->
   <circle cx="90" cy="90" r="85" fill="#0a0e27" stroke="url(#jetGradient180)" stroke-width="5"/>
   
-  <!-- Fighter Jet Body -->
+  <!-- Main fuselage body -->
   <path d="M20 90L160 90" stroke="url(#jetGradient180)" stroke-width="8" stroke-linecap="round"/>
   
-  <!-- Wings -->
-  <path d="M60 55L120 90L60 125" fill="url(#jetGradient180)" stroke="url(#jetGradient180)" stroke-width="4"/>
+  <!-- Main wings - swept back delta style -->
+  <path d="M50 60L110 90L50 120Z" fill="url(#jetGradient180)" stroke="url(#jetGradient180)" stroke-width="4"/>
   
-  <!-- Tail Fins -->
-  <path d="M30 75L30 105" stroke="url(#jetGradient180)" stroke-width="8" stroke-linecap="round"/>
+  <!-- Tail vertical stabilizer -->
+  <path d="M30 80L30 100L20 90Z" fill="url(#jetGradient180)" stroke="url(#jetGradient180)" stroke-width="3"/>
   
-  <!-- Nose Cone -->
-  <path d="M130 90L160 70L160 110L130 90" fill="url(#jetGradient180)" stroke="url(#jetGradient180)" stroke-width="4"/>
+  <!-- Horizontal stabilizers -->
+  <path d="M35 85L55 85" stroke="url(#jetGradient180)" stroke-width="4"/>
+  <path d="M35 95L55 95" stroke="url(#jetGradient180)" stroke-width="4"/>
   
-  <!-- Cockpit -->
-  <circle cx="110" cy="90" r="8" fill="#ffffff"/>
+  <!-- Nose cone - pointed -->
+  <path d="M160 90L175 80L175 100Z" fill="url(#jetGradient180)" stroke="url(#jetGradient180)" stroke-width="3"/>
   
-  <!-- Exhaust -->
-  <path d="M40 85L20 80L20 100L40 95" fill="#ff6b35" stroke="#ff6b35" stroke-width="4"/>
+  <!-- Cockpit canopy -->
+  <path d="M115 85L145 85L145 95L115 95Z" fill="rgba(255,255,255,0.3)" stroke="url(#jetGradient180)" stroke-width="2" rx="5"/>
+  
+  <!-- Engine intakes -->
+  <circle cx="70" cy="75" r="4" fill="none" stroke="url(#jetGradient180)" stroke-width="2"/>
+  <circle cx="70" cy="105" r="4" fill="none" stroke="url(#jetGradient180)" stroke-width="2"/>
+  
+  <!-- Afterburner exhaust -->
+  <path d="M20 85L5 80L5 100L20 95" fill="#ff6b35" stroke="#ff6b35" stroke-width="3"/>
+  <path d="M15 87L3 82L3 98L15 93" fill="#00f0ff" stroke="#00f0ff" stroke-width="2" opacity="0.7"/>
 </svg>

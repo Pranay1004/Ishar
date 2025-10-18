@@ -122,17 +122,33 @@ export default function Home() {
 
           {/* 3D Floating Fighter Jet */}
           <div ref={rocketRef} className="relative mx-auto w-32 h-32 my-12 animate-float" style={{ perspective: '1200px' }}>
-            <svg className="w-full h-full text-accent-cyan glow-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              {/* Main fuselage */}
-              <path d="M2 12L22 12"/>
-              {/* Wings */}
-              <path d="M8 8L16 12L8 16"/>
-              {/* Tail fins */}
-              <path d="M4 10L4 14"/>
-              {/* Nose cone */}
-              <path d="M18 12L22 10L22 14L18 12"/>
-              {/* Cockpit */}
-              <circle cx="14" cy="12" r="1"/>
+            <svg className="w-full h-full text-accent-cyan glow-cyan" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {/* Main fuselage body */}
+              <path d="M10 50L85 50" strokeWidth="4"/>
+              
+              {/* Main wings - swept back delta style */}
+              <path d="M25 35L55 50L25 65Z" fill="currentColor" fillOpacity="0.8" stroke="currentColor" strokeWidth="1"/>
+              
+              {/* Tail vertical stabilizer */}
+              <path d="M15 45L15 55L10 50Z" fill="currentColor" strokeWidth="1"/>
+              
+              {/* Horizontal stabilizers */}
+              <path d="M20 47L30 47" strokeWidth="2"/>
+              <path d="M20 53L30 53" strokeWidth="2"/>
+              
+              {/* Nose cone - pointed */}
+              <path d="M85 50L95 47L95 53Z" fill="currentColor" strokeWidth="1"/>
+              
+              {/* Cockpit canopy */}
+              <path d="M60 48L75 48L75 52L60 52Z" fill="rgba(255,255,255,0.3)" stroke="currentColor" strokeWidth="1" rx="2"/>
+              
+              {/* Engine intakes */}
+              <circle cx="35" cy="45" r="2" fill="none" strokeWidth="1"/>
+              <circle cx="35" cy="55" r="2" fill="none" strokeWidth="1"/>
+              
+              {/* Afterburner exhaust */}
+              <path d="M10 48L5 46L5 54L10 52" fill="#ff6b35" stroke="#ff6b35" strokeWidth="1"/>
+              <path d="M8 49L3 47L3 53L8 51" fill="#00f0ff" stroke="#00f0ff" strokeWidth="1" opacity="0.7"/>
             </svg>
           </div>
 
