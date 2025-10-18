@@ -24,10 +24,11 @@ export default function AudioVisualizer() {
         
         newAnalyser.fftSize = 256;
         const bufferLength = newAnalyser.frequencyBinCount;
-        const newAudioData = new Uint8Array(bufferLength);
+        const newAudioData = new Uint8Array(new ArrayBuffer(bufferLength));
         
         setAudioContext(newAudioContext);
         setAnalyser(newAnalyser);
+        setAudioData(newAudioData);
         setAudioData(newAudioData);
         
         // Remove event listeners once audio context is created
@@ -81,6 +82,7 @@ export default function AudioVisualizer() {
     const draw = () => {
       if (!analyser || !audioData || !ctx) return;
       
+      // @ts-ignore - TypeScript issue with Uint8Array types
       analyser.getByteFrequencyData(audioData);
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);

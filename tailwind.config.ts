@@ -22,6 +22,7 @@ const config: Config = {
       },
       animation: {
         float: 'float 3s ease-in-out infinite',
+        revolve: 'revolve 15s linear infinite',
         'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
         shimmer: 'shimmer 2.5s ease-in-out infinite',
         'fade-up': 'fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -32,6 +33,10 @@ const config: Config = {
         float: {
           '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
           '50%': { transform: 'translate3d(0, -10px, 0)' },
+        },
+        revolve: {
+          '0%': { transform: 'rotate(0deg) translateX(140px) rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg) translateX(140px) rotate(-360deg)' },
         },
         'pulse-glow': {
           '0%, 100%': {

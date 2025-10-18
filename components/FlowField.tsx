@@ -34,8 +34,8 @@ export default function FlowField() {
       maxLife: number;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * (canvas?.width || 800);
+        this.y = Math.random() * (canvas?.height || 600);
         this.vx = (Math.random() - 0.5) * 2;
         this.vy = (Math.random() - 0.5) * 2;
         this.life = 0;
@@ -62,10 +62,10 @@ export default function FlowField() {
         this.life++;
 
         // Wrap around edges
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
+        if (this.x < 0) this.x = canvas?.width || 800;
+        if (this.x > (canvas?.width || 800)) this.x = 0;
+        if (this.y < 0) this.y = canvas?.height || 600;
+        if (this.y > (canvas?.height || 600)) this.y = 0;
       }
 
       draw(ctx: CanvasRenderingContext2D) {
@@ -82,8 +82,8 @@ export default function FlowField() {
     }
 
     // Generate flow field
-    const cols = Math.ceil(canvas.width / 20);
-    const rows = Math.ceil(canvas.height / 20);
+    const cols = Math.ceil((canvas?.width || 800) / 20);
+    const rows = Math.ceil((canvas?.height || 600) / 20);
     const flowField: number[][] = [];
 
     for (let y = 0; y < rows; y++) {
@@ -106,7 +106,7 @@ export default function FlowField() {
 
     const animate = () => {
       ctx.fillStyle = 'rgba(11, 12, 16, 0.1)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, canvas?.width || 800, canvas?.height || 600);
 
       // Update flow field over time
       time += 0.01;

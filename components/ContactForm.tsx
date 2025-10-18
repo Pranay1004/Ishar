@@ -142,7 +142,7 @@ export default function ContactForm() {
                 </div>
                 <h4 className="font-monument text-xl acid-text mb-2">TRANSMISSION COMPLETE</h4>
                 <p className="font-neue max-w-xs">
-                  Your message has been successfully received. I'll respond as soon as possible.
+                  Your message has been successfully received. I&apos;ll respond as soon as possible.
                 </p>
               </motion.div>
             ) : (

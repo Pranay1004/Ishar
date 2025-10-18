@@ -112,11 +112,11 @@ export default function Vision() {
             className="glass p-8 rounded-2xl inline-block"
           >
             <blockquote className="font-space-grotesk text-lg italic text-off-white">
-              "In the realm of Mach numbers and plasma flows,
+              &ldquo;In the realm of Mach numbers and plasma flows,
               <br />
-              we don't just analyze — we <span className="text-plasma-cyan font-bold not-italic">innovate</span>."
+              we don&apos;t just analyze &mdash; we <span className="text-plasma-cyan font-bold not-italic">innovate</span>.&rdquo;
             </blockquote>
-            <p className="font-michroma text-sm text-plasma-cyan mt-4">— Ishar Singh Saini</p>
+            <p className="font-michroma text-sm text-plasma-cyan mt-4">&mdash; Ishar Singh Saini</p>
           </motion.div>
 
           {/* Floating particles */}
